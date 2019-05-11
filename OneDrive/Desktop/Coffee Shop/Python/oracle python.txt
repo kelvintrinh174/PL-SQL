@@ -1,0 +1,2 @@
+REM mypy.bat
+SET PATH=C:\Program Files\Oracle\instantclient_18_5;%PATH%python%*

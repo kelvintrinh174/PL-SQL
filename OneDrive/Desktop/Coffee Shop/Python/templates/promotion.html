@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-4=">PROMOTIONS</legend>
+			<div class="form-group">
+				{{ form.day.label(class = "form-control-label") }}
+				{% if form.day.errors %}
+						{{ form.day(class="form-control form-control-md is-invalid") }}
+						<div class="invalid-feedback d-block">
+							{% for error in form.day.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.day(class="form-control form-control-md") }}
+					{% endif %}
+			</div>
+			<div class="form-group">
+				{{ form.month.label(class = "form-control-label") }}
+				{% if form.month.errors %}
+						{{ form.month(class="form-control form-control-md is-invalid") }}
+						<div class="invalid-feedback d-block">
+							{% for error in form.month.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<!-- loop through all errors and print them out -->
+					{% else %}
+						{{ form.month(class="form-control form-control-md") }}
+					{% endif %}
+			</div>
+			<div class="form-group">
+				{{ form.year.label(class = "form-control-label") }}
+				{% if form.year.errors %}
+						{{ form.year(class="form-control form-control-md is-invalid") }}
+						<div class="invalid-feedback d-block">
+							{% for error in form.year.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<!-- loop through all errors and print them out -->
+					{% else %}
+						{{ form.year(class="form-control form-control-md") }}
+					{% endif %}
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{ form.submit(class="btn btn-outline-info") }}
+		</div>
+	</form>
+</div>
+{% endblock %}

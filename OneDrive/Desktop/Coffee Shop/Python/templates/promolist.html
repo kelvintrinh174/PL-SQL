@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+	<h2>Eligible Customers for promotion</h2>
+	<table class="table">
+		<tr>
+			<th>IDSHOPPER</th>
+			<th>MONTH</th>
+			<th>YEAR</th>
+			<th>PROMO_FLAG</th>
+			<th>USED</th>
+		</tr>
+ 	{% for record in cur %}
+		<tr>
+		    <td >{{ record.0 }}</td>
+		    <td>{{ record.1 }}</td>
+		    <td>{{ record.2 }}</td>
+		    <td>{{ record.3 }}</td>
+		    <td >{{ record.4 }}</td>
+		</tr>
+		{% endfor %}	
+	
+	
+	
+</table>
+</div>
+{% endblock %}

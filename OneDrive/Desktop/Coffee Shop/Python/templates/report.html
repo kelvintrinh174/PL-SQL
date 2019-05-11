@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<div class="form-group">
+			{{ form.report1(class="btn btn-outline-info") }}
+			{{ form.report2(class="btn btn-outline-info") }}
+		</div>
+	</form>
+	<div class="container">
+	{% if cur1 %}
+		<h2>Report 1</h2>
+		<table class="table">
+		<tr>
+			<th>Shopper_ID</th>
+			<th>First_Name</th>
+			<th>Last_Name</th>
+			<th>Total_Purchase</th>
+		</tr>
+ 		{% for record in cur1 %}
+		<tr>
+		    <td >{{ record.0 }}</td>
+		    <td>{{ record.1 }}</td>
+		    <td>{{ record.2 }}</td>
+		    <td>{{ record.3 }}</td>
+		</tr>
+		{% endfor %}
+		</table>
+	{% else %}
+		<div></div>
+	{% endif %}
+</div>
+	<div class="container">
+	{% if cur2 %}
+		<h2>Report 2</h2>
+		<table class="table">
+		<tr>
+			<th>Number Purchase Of Shopper 23</th>
+		</tr>
+ 		{% for record in cur2 %}
+		<tr>
+		    <td >{{ record.0 }}</td>
+		</tr>
+		{% endfor %}
+		</table>
+	{% else %}
+		<div></div>
+	{% endif %}
+</div>
+</div>
+</div>
+{% endblock %}

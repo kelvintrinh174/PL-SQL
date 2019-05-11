@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-4=">Check basket status</legend>
+			<div class="form-group">
+				{{ form.basketID.label(class = "form-control-label") }}
+				{% if form.basketID.errors %}
+						{{ form.basketID(class="form-control form-control-md is-invalid") }}
+						<div class="invalid-feedback d-block">
+							{% for error in form.basketID.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.basketID(class="form-control form-control-md") }}
+					{% endif %}
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{ form.submit(class="btn btn-outline-info") }}
+		</div>
+	</form>
+	<div class="container">
+	
+	{% if cur %}
+		<h2>Basket stage descriptions</h2>
+		<table class="table">
+		<tr>
+			<th>Basket_ID</th>
+			<th>Date_Stage</th>
+			<th>Stage_Description</th>
+		</tr>
+ 		{% for record in cur %}
+		<tr>
+		    <td >{{ record.0 }}</td>
+		    <td>{{ record.1 }}</td>
+		    <td>{{ record.2 }}</td>
+		</tr>
+		{% endfor %}
+		</table>
+	{% else %}
+		<div></div>
+
+	{% endif %}
+</div>
+</div>
+{% endblock %}
